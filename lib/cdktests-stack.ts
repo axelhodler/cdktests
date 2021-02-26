@@ -13,7 +13,8 @@ export class CdktestsStack extends cdk.Stack {
 
     const albfs = new ApplicationLoadBalancedFargateService(this, 'test-fargate', {
       taskImageOptions: {
-        image: ecs.ContainerImage.fromEcrRepository(repository, 'latest')
+        image: ecs.ContainerImage.fromEcrRepository(repository, 'latest'),
+        containerPort: 8080
       }
     })
 
